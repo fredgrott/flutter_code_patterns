@@ -1,0 +1,26 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "proxy::proxy.dart::Subject" {
+  +void someMethod()
+}
+
+class "proxy::proxy.dart::ExpensiveClass" {
+  +String name
+  +void someMethod()
+}
+
+"proxy::proxy.dart::Subject" <|-- "proxy::proxy.dart::ExpensiveClass"
+
+class "proxy::proxy.dart::Proxy" {
+  -String _name
+  -ExpensiveClass _sub
+  +void someMethod()
+  -ExpensiveClass _subject()
+}
+
+"proxy::proxy.dart::Proxy" o-- "proxy::proxy.dart::ExpensiveClass"
+"proxy::proxy.dart::Subject" <|-- "proxy::proxy.dart::Proxy"
+
+
+@enduml

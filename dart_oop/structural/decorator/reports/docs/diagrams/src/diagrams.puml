@@ -1,0 +1,33 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "decorator::decorator.dart::Beverage" {
+  +double cost
+  +String ingredients
+}
+
+class "decorator::decorator.dart::Ingredient" {
+  +double cost
+  +String name
+  +String toString()
+}
+
+class "decorator::decorator.dart::Coffee" {
+  -Set<Ingredient> _ingredients
+  +double cost
+  +String ingredients
+}
+
+"decorator::decorator.dart::Beverage" <|-- "decorator::decorator.dart::Coffee"
+
+class "decorator::decorator.dart::StarbucksCoffeeDecorator" {
+  -Beverage _coffee
+  +double cost
+  +String ingredients
+}
+
+"decorator::decorator.dart::StarbucksCoffeeDecorator" o-- "decorator::decorator.dart::Beverage"
+"decorator::decorator.dart::Beverage" <|-- "decorator::decorator.dart::StarbucksCoffeeDecorator"
+
+
+@enduml

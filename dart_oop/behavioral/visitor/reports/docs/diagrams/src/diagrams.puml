@@ -1,0 +1,52 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "visitor::visitor.dart::BodyPart" {
+  +String name
+  +void accept()
+}
+
+abstract class "visitor::visitor.dart::BodyPartVisitor" {
+  +void visit()
+}
+
+class "visitor::visitor.dart::Face" {
+  +String name
+}
+
+"visitor::visitor.dart::BodyPart" <|-- "visitor::visitor.dart::Face"
+
+class "visitor::visitor.dart::Finger" {
+  +String name
+}
+
+"visitor::visitor.dart::BodyPart" <|-- "visitor::visitor.dart::Finger"
+
+class "visitor::visitor.dart::Foot" {
+  +String name
+}
+
+"visitor::visitor.dart::BodyPart" <|-- "visitor::visitor.dart::Foot"
+
+class "visitor::visitor.dart::Body" {
+  +String name
+  +List<BodyPart> bodyParts
+  +void accept()
+}
+
+"visitor::visitor.dart::BodyPart" <|-- "visitor::visitor.dart::Body"
+
+class "visitor::visitor.dart::BodyPartStitchVisitor" {
+  +void visit()
+}
+
+"visitor::visitor.dart::BodyPartVisitor" <|-- "visitor::visitor.dart::BodyPartStitchVisitor"
+
+class "visitor::visitor.dart::BodyPartProdVisitor" {
+  +void visit()
+}
+
+"visitor::visitor.dart::BodyPartVisitor" <|-- "visitor::visitor.dart::BodyPartProdVisitor"
+
+
+@enduml

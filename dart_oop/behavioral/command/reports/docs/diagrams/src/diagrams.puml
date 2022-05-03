@@ -1,0 +1,56 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "command::command.dart::Receiver" {
+  +Set<String> actions
+}
+
+abstract class "command::command.dart::Command" {
+  +Receiver receiver
+  +String name
+  +String toString()
+  +void execute()
+}
+
+"command::command.dart::Command" o-- "command::command.dart::Receiver"
+
+class "command::command.dart::Invoker" {
+  +List<String> history
+  +void execute()
+  +String toString()
+}
+
+class "command::command.dart::TurnOffCommand" {
+  +String name
+  +void execute()
+}
+
+"command::command.dart::Command" <|-- "command::command.dart::TurnOffCommand"
+
+class "command::command.dart::TurnOnCommand" {
+  +String name
+  +void execute()
+}
+
+"command::command.dart::Command" <|-- "command::command.dart::TurnOnCommand"
+
+class "command::command.dart::Light" {
+  +Set<String> actions
+  +void turnOff()
+  +void turnOn()
+}
+
+"command::command.dart::Receiver" <|-- "command::command.dart::Light"
+
+class "command::command.dart::LightSwitch" {
+  -Invoker _switch
+  +Light light
+  +String history
+  +void perform()
+}
+
+"command::command.dart::LightSwitch" o-- "command::command.dart::Invoker"
+"command::command.dart::LightSwitch" o-- "command::command.dart::Light"
+
+
+@enduml

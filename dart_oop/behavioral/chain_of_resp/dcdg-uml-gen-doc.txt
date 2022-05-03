@@ -1,0 +1,5 @@
+generally its
+
+dart pub global run dcdg --output=reports/docs/diagrams/src/diagrams.puml
+
+Then we run an IDE plugin to convert that file to a png file

@@ -1,0 +1,50 @@
+@startuml
+set namespaceSeparator ::
+
+class "factory_method::factory_method.dart::Volume" {
+  +int quantity
+  +String unit
+  +String toString()
+}
+
+abstract class "factory_method::factory_method.dart::Vessel" {
+  +Volume volume
+  +String liquid
+}
+
+"factory_method::factory_method.dart::Vessel" o-- "factory_method::factory_method.dart::Volume"
+
+class "factory_method::factory_method.dart::Bucket" {
+  +Volume volume
+  +String toString()
+}
+
+"factory_method::factory_method.dart::Bucket" o-- "factory_method::factory_method.dart::Volume"
+"factory_method::factory_method.dart::Vessel" <|-- "factory_method::factory_method.dart::Bucket"
+
+class "factory_method::factory_method.dart::Cup" {
+  +Volume volume
+  +String toString()
+}
+
+"factory_method::factory_method.dart::Cup" o-- "factory_method::factory_method.dart::Volume"
+"factory_method::factory_method.dart::Vessel" <|-- "factory_method::factory_method.dart::Cup"
+
+class "factory_method::factory_method.dart::CoffeeVesselFactory" {
+  {static} +Vessel vesselFor()
+}
+
+class "factory_method::factory_method.dart::Tiredness" {
+  +int index
+  {static} +List<Tiredness> values
+  {static} +Tiredness rested
+  {static} +Tiredness sleepy
+  {static} +Tiredness barelyAlive
+  {static} +Tiredness hasChildren
+}
+
+"factory_method::factory_method.dart::Tiredness" o-- "factory_method::factory_method.dart::Tiredness"
+"dart::core::Enum" <|-- "factory_method::factory_method.dart::Tiredness"
+
+
+@enduml

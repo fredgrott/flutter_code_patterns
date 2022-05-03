@@ -1,0 +1,37 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "abstract_factory::abstract_factory.dart::Drinkable" {
+  +void pour()
+}
+
+class "abstract_factory::abstract_factory.dart::Beer" {
+  +void pour()
+}
+
+"abstract_factory::abstract_factory.dart::Drinkable" <|-- "abstract_factory::abstract_factory.dart::Beer"
+
+class "abstract_factory::abstract_factory.dart::Coffee" {
+  +void pour()
+}
+
+"abstract_factory::abstract_factory.dart::Drinkable" <|-- "abstract_factory::abstract_factory.dart::Coffee"
+
+abstract class "abstract_factory::abstract_factory.dart::DrinkFactory" {
+  +Drinkable createDrink()
+}
+
+class "abstract_factory::abstract_factory.dart::Pub" {
+  +Drinkable createDrink()
+}
+
+"abstract_factory::abstract_factory.dart::DrinkFactory" <|-- "abstract_factory::abstract_factory.dart::Pub"
+
+class "abstract_factory::abstract_factory.dart::CoffeeShop" {
+  +Drinkable createDrink()
+}
+
+"abstract_factory::abstract_factory.dart::DrinkFactory" <|-- "abstract_factory::abstract_factory.dart::CoffeeShop"
+
+
+@enduml

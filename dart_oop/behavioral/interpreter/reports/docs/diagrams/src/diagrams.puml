@@ -1,0 +1,32 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "interpreter::interpreter.dart::Expression" {
+  +Number number
+  +void interpret()
+}
+
+"interpreter::interpreter.dart::Expression" o-- "interpreter::interpreter.dart::Number"
+
+class "interpreter::interpreter.dart::Add" {
+  +Number number
+  +void interpret()
+}
+
+"interpreter::interpreter.dart::Add" o-- "interpreter::interpreter.dart::Number"
+"interpreter::interpreter.dart::Expression" <|-- "interpreter::interpreter.dart::Add"
+
+class "interpreter::interpreter.dart::Subtract" {
+  +Number number
+  +void interpret()
+}
+
+"interpreter::interpreter.dart::Subtract" o-- "interpreter::interpreter.dart::Number"
+"interpreter::interpreter.dart::Expression" <|-- "interpreter::interpreter.dart::Subtract"
+
+class "interpreter::interpreter.dart::Number" {
+  +int value
+}
+
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+set namespaceSeparator ::
+
+class "singleton::singleton.dart::Me" {
+  {static} -Me _singleton
+  {static} -String _name
+  {static} +String name
+  +String toString()
+}
+
+"singleton::singleton.dart::Me" o-- "singleton::singleton.dart::Me"
+
+
+@enduml

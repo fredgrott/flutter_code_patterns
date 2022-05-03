@@ -1,0 +1,34 @@
+@startuml
+set namespaceSeparator ::
+
+class "flyweight::flyweight.dart::Letter" {
+  +String letter
+  +String toString()
+}
+
+class "flyweight::flyweight.dart::Sentence" {
+  +List<Letter> letters
+  +void addLetter()
+  +String toString()
+}
+
+class "flyweight::flyweight.dart::LetterFactory" {
+  +Map<String, Letter> letters
+  +int lettersCreated
+  +Letter? fetchLetter()
+}
+
+class "flyweight::flyweight.dart::Document" {
+  +LetterFactory letterFactory
+  +int lettersWritten
+  +SplayTreeMap<int, Sentence> sentences
+  +int lettersCreated
+  +void export()
+  +void write()
+}
+
+"flyweight::flyweight.dart::Document" o-- "flyweight::flyweight.dart::LetterFactory"
+"flyweight::flyweight.dart::Document" o-- "dart::collection::SplayTreeMap<int, Sentence>"
+
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "template_method::template_method.dart::Abstract" {
+  +String abstractMethod()
+  +String hookMethod()
+  +void templateMethod()
+}
+
+class "template_method::template_method.dart::Concrete" {
+  +String abstractMethod()
+}
+
+"template_method::template_method.dart::Abstract" <|-- "template_method::template_method.dart::Concrete"
+
+class "template_method::template_method.dart::ConcreteOverridingHook" {
+  +String abstractMethod()
+  +String hookMethod()
+}
+
+"template_method::template_method.dart::Abstract" <|-- "template_method::template_method.dart::ConcreteOverridingHook"
+
+
+@enduml

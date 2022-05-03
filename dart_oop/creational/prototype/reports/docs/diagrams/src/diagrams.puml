@@ -1,0 +1,26 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "prototype::prototype.dart::Shape" {
+  +int x
+  +int y
+  +Shape clone()
+}
+
+class "prototype::prototype.dart::Rectangle" {
+  +int height
+  +int width
+  +int x
+  +int y
+  -int _hashCode
+  +bool isClone
+  +String cloneStatus
+  +int hashCode
+  +Rectangle clone()
+  +bool ==()
+}
+
+"prototype::prototype.dart::Shape" <|-- "prototype::prototype.dart::Rectangle"
+
+
+@enduml

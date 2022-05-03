@@ -1,0 +1,23 @@
+@startuml
+set namespaceSeparator ::
+
+class "memento::memento.dart::Memento" {
+  -String _state
+  +String state
+}
+
+class "memento::memento.dart::Originator" {
+  -String _state
+  +String state
+  +Memento saveToMemento()
+  +void restoreFromMemento()
+}
+
+class "memento::memento.dart::CareTaker" {
+  +Memento memento
+}
+
+"memento::memento.dart::CareTaker" o-- "memento::memento.dart::Memento"
+
+
+@enduml

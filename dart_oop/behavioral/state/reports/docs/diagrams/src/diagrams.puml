@@ -1,0 +1,32 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "state::state.dart::State" {
+  +void handler()
+  +String toString()
+}
+
+class "state::state.dart::StatusOn" {
+  +dynamic handler()
+  +String toString()
+}
+
+"state::state.dart::State" <|-- "state::state.dart::StatusOn"
+
+class "state::state.dart::StatusOff" {
+  +dynamic handler()
+  +String toString()
+}
+
+"state::state.dart::State" <|-- "state::state.dart::StatusOff"
+
+class "state::state.dart::Stateful" {
+  -State _state
+  +State state
+  +void touch()
+}
+
+"state::state.dart::Stateful" o-- "state::state.dart::State"
+
+
+@enduml

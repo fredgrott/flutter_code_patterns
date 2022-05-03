@@ -1,0 +1,26 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "composite::composite.dart::Thing" {
+  +String name
+  +void doSomething()
+}
+
+class "composite::composite.dart::CompositeThing" {
+  +String name
+  -Set<Thing> _childThings
+  +void addChild()
+  +void doSomething()
+}
+
+"composite::composite.dart::Thing" <|-- "composite::composite.dart::CompositeThing"
+
+class "composite::composite.dart::LeafThing" {
+  +String name
+  +void doSomething()
+}
+
+"composite::composite.dart::Thing" <|-- "composite::composite.dart::LeafThing"
+
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::Logger" {
+  +Set<LogLevel> levels
+  -Logger _next
+  +bool universal
+  +Logger next
+  +void addLevel()
+  +void log()
+  +void write_message()
+}
+
+"file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::Logger" o-- "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::Logger"
+
+class "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::ConsoleLogger" {
+  +void write_message()
+}
+
+"file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::Logger" <|-- "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::ConsoleLogger"
+
+class "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::EmailLogger" {
+  +void write_message()
+}
+
+"file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::Logger" <|-- "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::EmailLogger"
+
+class "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::FileLogger" {
+  +void write_message()
+}
+
+"file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::Logger" <|-- "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::FileLogger"
+
+class "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::LogLevel" {
+  +int index
+  {static} +List<LogLevel> values
+  {static} +LogLevel none
+  {static} +LogLevel info
+  {static} +LogLevel debug
+  {static} +LogLevel warning
+  {static} +LogLevel error
+  {static} +LogLevel functionalMessage
+  {static} +LogLevel functionalError
+}
+
+"file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::LogLevel" o-- "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::LogLevel"
+"dart::core::Enum" <|-- "file:::::::D:::fredgrttsstuff::GithubProjects::flutter_code_patterns::dart_oop::behavioral::chain_of_resp::bin::chain_of_resp.dart::LogLevel"
+
+
+@enduml

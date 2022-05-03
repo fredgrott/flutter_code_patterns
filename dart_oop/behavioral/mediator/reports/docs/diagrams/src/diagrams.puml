@@ -1,0 +1,21 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "mediator::mediator.dart::Stateful" {
+  -String _state
+  +String state
+}
+
+class "mediator::mediator.dart::Mediator" {
+  -List<Stateful> _parties
+  +void update()
+}
+
+class "mediator::mediator.dart::Attendee" {
+  +String name
+}
+
+"mediator::mediator.dart::Stateful" <|-- "mediator::mediator.dart::Attendee"
+
+
+@enduml

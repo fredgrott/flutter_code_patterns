@@ -1,0 +1,34 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "strategy::strategy.dart::CoffeeStrategy" {
+  +String announce()
+}
+
+class "strategy::strategy.dart::AmericanoStrategy" {
+  +String announce()
+}
+
+"strategy::strategy.dart::CoffeeStrategy" <|-- "strategy::strategy.dart::AmericanoStrategy"
+
+class "strategy::strategy.dart::DripStrategy" {
+  +String announce()
+}
+
+"strategy::strategy.dart::CoffeeStrategy" <|-- "strategy::strategy.dart::DripStrategy"
+
+class "strategy::strategy.dart::MochaFrappuccinoStrategy" {
+  +String announce()
+}
+
+"strategy::strategy.dart::CoffeeStrategy" <|-- "strategy::strategy.dart::MochaFrappuccinoStrategy"
+
+class "strategy::strategy.dart::CoffeeDrinker" {
+  +CoffeeStrategy preferredDrink
+  +String name
+}
+
+"strategy::strategy.dart::CoffeeDrinker" o-- "strategy::strategy.dart::CoffeeStrategy"
+
+
+@enduml

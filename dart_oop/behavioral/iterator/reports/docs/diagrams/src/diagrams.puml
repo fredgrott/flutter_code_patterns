@@ -1,0 +1,14 @@
+@startuml
+set namespaceSeparator ::
+
+class "iterator::iterator.dart::RainbowIterator" {
+  -List<String> _colors
+  -int _index
+  +String current
+  +bool moveNext()
+}
+
+"dart::core::Iterator" <|-- "iterator::iterator.dart::RainbowIterator"
+
+
+@enduml

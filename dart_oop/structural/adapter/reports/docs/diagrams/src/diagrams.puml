@@ -1,0 +1,19 @@
+@startuml
+set namespaceSeparator ::
+
+class "adapter::adapter.dart::Adaptee" {
+  +String method()
+}
+
+abstract class "adapter::adapter.dart::Target" {
+  +String call()
+}
+
+class "adapter::adapter.dart::Adapter" {
+  +String call()
+}
+
+"adapter::adapter.dart::Target" <|-- "adapter::adapter.dart::Adapter"
+
+
+@enduml

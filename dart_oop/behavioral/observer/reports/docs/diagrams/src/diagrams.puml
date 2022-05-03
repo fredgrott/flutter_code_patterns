@@ -1,0 +1,27 @@
+@startuml
+set namespaceSeparator ::
+
+class "observer::observer.dart::Notification" {
+  +String message
+  +DateTime timestamp
+}
+
+class "observer::observer.dart::Observable" {
+  -List<Observer> _observers
+  +void registerObserver()
+  +void notifyObservers()
+}
+
+class "observer::observer.dart::Observer" {
+  +String name
+  +void notify()
+}
+
+class "observer::observer.dart::CoffeeMaker" {
+  +void brew()
+}
+
+"observer::observer.dart::Observable" <|-- "observer::observer.dart::CoffeeMaker"
+
+
+@enduml

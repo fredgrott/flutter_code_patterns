@@ -1,0 +1,36 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "bridge::bridge.dart::Loudspeaker" {
+  +void announce()
+}
+
+class "bridge::bridge.dart::LoudspeakerWithMuzak" {
+  +void announce()
+}
+
+"bridge::bridge.dart::Loudspeaker" <|-- "bridge::bridge.dart::LoudspeakerWithMuzak"
+
+class "bridge::bridge.dart::LoudspeakerWithAlarm" {
+  +void announce()
+}
+
+"bridge::bridge.dart::Loudspeaker" <|-- "bridge::bridge.dart::LoudspeakerWithAlarm"
+
+abstract class "bridge::bridge.dart::Factory" {
+  +Loudspeaker loudspeaker
+  +void announce()
+}
+
+"bridge::bridge.dart::Factory" o-- "bridge::bridge.dart::Loudspeaker"
+
+class "bridge::bridge.dart::CoffeeRoaster" {
+  -int _temp
+  +bool isTooHot
+  +void turnGasValve()
+}
+
+"bridge::bridge.dart::Factory" <|-- "bridge::bridge.dart::CoffeeRoaster"
+
+
+@enduml
